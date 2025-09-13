@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cozy Outfits BD</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#products">Skip to products</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Cozy Outfits BD home">
+        <span class="logo" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12C4 7.582 7.582 4 12 4s8 3.582 8 8-3.582 8-8 8" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M12 20a8 8 0 0 1 0-16v16Z" fill="white"/></svg>
+        </span>
+        <span>Cozy Outfits BD</span>
+      </a>
+
+      <button class="icon-btn menu-toggle" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <div class="search-wrap" role="search" aria-label="Site search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.5-3.5"/></svg>
+        <input id="searchInput" type="search" placeholder="Search products (e.g. sneakers, headphones)" aria-label="Search products" />
+      </div>
+
+      <nav class="nav-links" aria-label="Sections">
+        <a href="/" class="active">Shop</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+
+      <button id="themeToggle" class="icon-btn" aria-pressed="false" aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 9 9c0-4.97-4.03-9-9-9Z"/></svg>
+      </button>
+
+      <button id="openCart" class="icon-btn" aria-label="Open cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/><path d="M3 3h2l.4 2M7 13h10l3-8H6.4"/><path d="M7 13 5.4 5"/>
+        </svg>
+        <span id="cartBadge" class="badge" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1>Shop the latest drops with style & speed</h1>
+          <p class="lead">A sleek, responsive storefront with smooth filtering, instant search, and a delightful cart — built in pure HTML, CSS & JS.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#products">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              Start shopping
+            </a>
+            <button class="btn btn-ghost" id="viewWishlist">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+              Wishlist
+            </button>
+          </div>
+        </div>
+        <aside class="promo-card" aria-label="Promo">
+          <span class="tag">Summer Sale</span>
+          <h3 style="margin:.6rem 0 .2rem">Up to 40% off select styles</h3>
+          <p class="muted">Limited time. Discount auto-applies in cart on eligible items.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Toolbar -->
+    <section class="toolbar" aria-label="Filters and sorting">
+      <div class="filter-row">
+        <div class="chip">
+          <label class="muted" for="catSelect">Category</label>
+          <select id="catSelect" aria-label="Filter by category"></select>
+        </div>
+        <div class="chip">
+          <label class="muted" for="minPrice">Min</label>
+          <input id="minPrice" type="number" min="0" placeholder="0" aria-label="Minimum price">
+          <span class="muted">—</span>
+          <label class="muted" for="maxPrice">Max</label>
+          <input id="maxPrice" type="number" min="0" placeholder="9999" aria-label="Maximum price">
+        </div>
+        <div class="chip">
+          <label class="muted" for="ratingSelect">Rating</label>
+          <select id="ratingSelect" aria-label="Minimum rating">
+            <option value="0">Any</option>
+            <option value="3">3★+</option>
+            <option value="4">4★+</option>
+            <option value="4.5">4.5★+</option>
+          </select>
+        </div>
+        <button id="clearFilters" class="btn btn-ghost">Clear</button>
+      </div>
+      <div class="filter-row">
+        <div class="chip">
+          <label class="muted" for="sortSelect">Sort</label>
+          <select id="sortSelect" aria-label="Sort products">
+            <option value="pop">Most popular</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="name-asc">Name: A → Z</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products grid -->
+    <section id="products" class="grid" aria-live="polite"></section>
+
+    <footer style="margin-top:32px">
+      <p><strong>Cozy Outfits BD</strong> — demo storefront. Built with care for accessibility, performance, and clean design.</p>
+      <p>Need this customized with your brand & backend? Just say the word.</p>
+    </footer>
+  </main>
+
+  <!-- Cart Drawer -->
+  <aside id="cartDrawer" class="drawer" aria-label="Shopping cart" aria-hidden="true">
+    <header>
+      <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+        <h3 style="margin:0">Your Cart</h3>
+        <button id="closeCart" class="icon-btn" aria-label="Close cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
+        </button>
+      </div>
+    </header>
+    <main id="cartItems"></main>
+    <div class="cart-footer">
+      <div class="cart-summary"><strong>Subtotal</strong><strong id="cartSubtotal">$0.00</strong></div>
+      <button id="checkoutBtn" class="btn btn-primary" style="width:100%">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Product Details Modal -->
+  <dialog id="productModal" aria-labelledby="productHeading">
+    <div class="modal-head">
+      <h3 id="productHeading" style="margin:0">Product Details</h3>
+      <button id="closeProduct" class="icon-btn" aria-label="Close product details">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="grid-2">
+        <div>
+          <div class="media" style="border-radius:14px; overflow:hidden">
+            <img id="pdImage" alt="">
+          </div>
+        </div>
+        <div>
+          <h3 id="pdTitle" style="margin:0 0 6px"></h3>
+          <div class="muted" id="pdMeta"></div>
+          <div style="margin:8px 0 10px">
+            <strong id="pdPrice" style="font-size:22px"></strong> <span id="pdStrike" class="strike"></span>
+          </div>
+          <p id="pdDesc" class="muted"></p>
+          <div class="grid" style="margin:12px 0">
+            <label class="field" style="grid-column: span 6"><span class="muted">Size</span><select id="pdSize"></select></label>
+            <label class="field" style="grid-column: span 6"><span class="muted">Color</span><select id="pdColor"></select></label>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center">
+            <div class="qty"><button id="pdDec">−</button><input id="pdQty" value="1" inputmode="numeric" aria-label="Quantity" /><button id="pdInc">+</button></div>
+            <button id="pdAdd" class="btn btn-primary">Add to Cart</button>
+            <button id="pdWish" class="wish" aria-pressed="false" aria-label="Add to wishlist">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Checkout Modal (COD only) -->
+  <dialog id="checkoutModal" aria-labelledby="checkoutHeading">
+    <div class="modal-head">
+      <h3 id="checkoutHeading" style="margin:0">Checkout</h3>
+      <button id="closeCheckout" class="icon-btn" aria-label="Close checkout">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="grid-2">
+        <div>
+          <h4 style="margin:0 0 8px">Contact</h4>
+          <label class="field"><span class="muted">Full name</span><input id="name" placeholder="Umar Faruk" required /></label>
+          <label class="field"><span class="muted">Email</span><input id="email" type="email" placeholder="you@example.com" required /></label>
+
+          <h4 style="margin:12px 0 8px">Shipping</h4>
+          <label class="field"><span class="muted">Address</span><input id="address" placeholder="123 Main St" required /></label>
+          <label class="field"><span class="muted">City</span><input id="city" placeholder="Dhaka" required /></label>
+          <label class="field"><span class="muted">Country</span>
+            <select id="country">
+              <option selected>Bangladesh</option>
+              <option>United States</option>
+              <option>United Kingdom</option>
+              <option>India</option>
+              <option>Canada</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px">Payment</h4>
+          <div class="chip" style="margin-bottom:12px">Cash on Delivery — pay the delivery agent upon receiving your items.</div>
+          <div class="chip" style="justify-content:space-between; margin-top:14px">
+            <div>
+              <div class="muted" style="font-size:12px">Order total</div>
+              <div id="orderTotal" style="font-weight:800; font-size:20px">$0.00</div>
+            </div>
+            <button id="placeOrder" class="btn btn-primary">Place order</button>
+          </div>
+          <p class="muted" style="margin-top:8px">No online payment required.</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script defer src="/assets/app.js"></script>
+</body>
+</html>
