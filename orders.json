@@ -1,0 +1,28 @@
+{
+  "orders": [
+    {
+      "id": "f5j1oHXXh1hF",
+      "status": "placed",
+      "paymentStatus": "cod",
+      "total": 149,
+      "items": [
+        {
+          "id": "head-01",
+          "title": "Pulse Headphones",
+          "price": 149,
+          "qty": 1
+        }
+      ],
+      "contact": {
+        "name": "Umar Faruk",
+        "email": "umarfaruk.sust@gmail.com"
+      },
+      "shipping": {
+        "address": "Khilkhet, Dhaka",
+        "city": "Dhaka",
+        "country": "Bangladesh"
+      },
+      "createdAt": "2025-09-13T09:40:20.211Z"
+    }
+  ]
+}
